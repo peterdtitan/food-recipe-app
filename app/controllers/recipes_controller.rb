@@ -1,13 +1,19 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(user: current_user)
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe = Recipe.includes(:recipe_food).find(params[:id])
+    @ingredients = @recipe.recipe_food.where(recipe: @recipe)
+
+    # redirect_to '/not_accessible' if (cannot? :manage, @recipe) && @recipe.public == false
+  end
 
   # GET /recipes/new
   def new
