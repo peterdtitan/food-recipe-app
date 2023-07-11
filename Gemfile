@@ -69,5 +69,13 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
+# for check the linters
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+# for authenfication
+gem 'devise'
+
+# for authorization
+gem 'cancancan'
+
+gem 'letter_opener'
