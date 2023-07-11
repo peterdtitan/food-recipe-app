@@ -80,4 +80,4 @@ gem 'cancancan'
 
 gem 'letter_opener'
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'tailwindcss-rails', '~> 2.0'
