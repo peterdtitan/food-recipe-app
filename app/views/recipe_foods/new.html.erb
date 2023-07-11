@@ -1,9 +1,28 @@
-<h1>New recipe food</h1>
+<section>
+  <%= link_to "Back", "/recipes/#{@recipe.id}" %>
 
-<%= render "form", recipe_food: @recipe_food %>
+ <div>
+  <h1>Add Ingrediants</h1>
+  <%= form_with(model: @recipe_food, url: "/recipes/#{@recipe.id}/recipe_foods/")  do |form| %>
+      <div style="color: red">
+       <% if @recipe_food.errors.any? %>
+        <h2><%= pluralize(@recipe_food.errors.count, "error") %> prohibited this @recipe_food from being saved:</h2>
+        <ul>
+          <% @recipe_food.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+       <% end %>
+      </div>
 
-<br>
+   <div>
+    <%= form.label :name, "Select Food:" %><br/>
+    <%= form.select :id,
+      options_for_select(@foods.map { |f| [f.name, f.id] }),{} %>
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
+      <%= form.submit %>
+     <% end %>
+    </div>
+</section>
 
-<div>
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
-</div>

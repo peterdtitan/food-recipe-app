@@ -1,4 +1,10 @@
-<div>
-  <h1 class="font-bold text-4xl">PublicRecipe#index</h1>
-  <p>Find me in app/views/public_recipe/index.html.erb</p>
-</div>
+<section >
+  <h2>Public Recipes</h2>
+  <ul >
+    <% @public_recipes.each do |recipe| %>
+      <li>
+        <%= render partial:"public_recipes/public_recipe", locals: {recipe: recipe} %>
+      </li>
+    <% end %>
+  </ul>
+</section>

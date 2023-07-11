@@ -15,16 +15,18 @@
     <%= form.label :name %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
+    <div class="my-5">
+      <%= form.label :preparation_time %>
+      <%= form.text_field :preparation_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+      placeholder: "Only for number/decimal value" %>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :preparation_time %>
-    <%= form.number_field :preparation_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div class="my-5">
+      <%= form.label :cooking_time %>
+      <%= form.text_field :cooking_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+      placeholder: "Only for number/decimal value" %>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :cooking_time %>
-    <%= form.number_field :cooking_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
   <div class="my-5">
     <%= form.label :description %>
