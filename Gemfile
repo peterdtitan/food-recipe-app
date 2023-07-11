@@ -79,3 +79,5 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'letter_opener'
+
+gem "tailwindcss-rails", "~> 2.0"

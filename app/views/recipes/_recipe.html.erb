@@ -1,13 +1,14 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
-
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
+<div id="<%= dom_id recipe %>" class="flex flex-col gap-4">
+  <div class="flex justify-center">
+    <h1 class="text-3xl font-medium"><%= recipe.name %></h1>
+  </div>
+  <div class="flex justify-between">
+    <div>
+      <strong>Preparation time:</strong>
+      <%= recipe.preparation_time %>
+    </div>
+    <p>Public?</p>
+  </div>
 
   <p>
     <strong>Cooking time:</strong>
@@ -19,14 +20,9 @@
     <%= recipe.description %>
   </p>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
+  <div class="flex justify-between pb-10 mt-8">
+    <button class="p-2 rounded-md bg-blue-400 hover:bg-emerald-400 text-black">Generate Shopping List</button>
+    <button class="p-2 rounded-md bg-emerald-400 hover:bg-yellow-400 text-black">Add Ingredient</button>
+  </div>
 
 </div>
