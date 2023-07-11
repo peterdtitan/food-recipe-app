@@ -77,3 +77,5 @@ gem 'devise'
 
 # for authorization
 gem 'cancancan'
+
+gem 'letter_opener'
