@@ -9,15 +9,14 @@
       <strong>Hour</strong>
     </div>
     <div class="switch-btn">
-    <% if can? :manage, @recipe %>
-      <%= form_for @recipe, method: :patch do |f| %>
-     <p>
-     <label>
-       Public : <%= f.submit "" %>
-       <%= f.check_box :public, { checked: @recipe.public } %>
-       </label>
-     </p>
-     <% end %>
+     <% if can? :manage, @recipe %>
+       <%= form_for @recipe, method: :patch do |f| %>
+          <div>
+              <%= f.check_box :public, id: 'visibility-toggle' %>
+             <%= f.label :public, 'Public', for: 'visibility-toggle' %>
+             <%= f.submit '=>', class: "p-2 rounded-md bg-blue-400 hover:bg-yellow-400 text-black" %>
+           </div>
+        <% end %>
      <% end %>
    </div>
   </div>
