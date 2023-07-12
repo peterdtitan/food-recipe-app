@@ -2,17 +2,28 @@
   <div class="flex justify-center">
     <h1 class="text-3xl font-medium"><%= recipe.name %></h1>
   </div>
-  <div class="flex justify-between">
+ <div class="flex justify-between">
     <div>
       <strong>Preparation time:</strong>
       <%= recipe.preparation_time %>
+      <strong>Hour</strong>
     </div>
-    <p>Public?</p>
+    <div class="switch-btn">
+      <%= form_for @recipe, method: :patch do |f| %>
+     <p>
+     <label>
+       Public : <%= f.submit "" %>
+       <%= f.check_box :public, { checked: @recipe.public } %>
+       </label>
+     </p>
+     <% end %>
+   </div>
   </div>
 
   <p>
     <strong>Cooking time:</strong>
     <%= recipe.cooking_time %>
+    <strong>Hour</strong>
   </p>
 
   <p>
@@ -21,8 +32,33 @@
   </p>
 
   <div class="flex justify-between pb-10 mt-8">
-    <button class="p-2 rounded-md bg-blue-400 hover:bg-emerald-400 text-black">Generate Shopping List</button>
-    <button class="p-2 rounded-md bg-emerald-400 hover:bg-yellow-400 text-black">Add Ingredient</button>
+    <button class="p-2 rounded-md bg-blue-400 hover:bg-emerald-400 text-black">
+    <%= link_to "Generate Shopping List", shopping_list_path %>
+    </button>
+    <button class="p-2 rounded-md bg-emerald-400 hover:bg-yellow-400 text-black">
+    <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
+    </button>
   </div>
 
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+          <td>$ <%= recipe_food.value %></td>
+          <td>
+          <div>
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id)%>
+            <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id),  method: :delete %>
+          </div>
+          </td>
+      </tr>
+    <% end %>
+</table>
 </div>

@@ -1,0 +1,10 @@
+<a href=<%= "recipes/#{recipe.id}" %> >
+  <div>
+    <h3><%= recipe.name %></h3>
+    <p>by: <span><%= recipe.user.name %></span></p>
+  </div>
+  <div>
+    <h4>Total food: <span ><%= recipe.recipe_foods.length %></span></h4>
+    <h4>Total price: <span >$<%= RecipeFood.total_price(recipe.recipe_foods) %></span></h4>
+  </div>
+</a>

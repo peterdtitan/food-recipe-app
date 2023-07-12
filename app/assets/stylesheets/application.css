@@ -5,6 +5,7 @@
 }
 
 .registration_page {
+  height: 400px;
   width: 50%;
   border: 1px solid black;
   display: flex;
@@ -12,11 +13,16 @@
   text-align: center;
   margin: 10px;
   background-color: azure;
+  justify-content: space-between;
 }
 
 .new_user {
-  height: 150px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+input[type='submit'] {
+  cursor: pointer;
 }

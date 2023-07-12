@@ -12,7 +12,8 @@
     <% @recipes.each do |recipe| %>
       <div class="flex justify-around items-start gap-10 h-[170px] w-[700px] rounded-md p-8 bg-slate-200">
         <div class="flex flex-col gap-10 justify-between">
-          <h2 class="font-bold text-2xl"><%= recipe.name %></h2>
+          <h2 class="font-bold text-2xl"><%= recipe.name %> <%= link_to "See Details", recipe_path(recipe),
+          class: "bg-blue-600 text-white"%></h2>
           <%= link_to "Remove", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 ml-2 underline"  %>
         </div>
 

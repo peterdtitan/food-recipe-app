@@ -13,6 +13,7 @@
       <thead>
         <tr>
           <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Name</th>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Quantity</th>
           <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Measurement Unit</th>
           <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Unit Price</th>
           <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Actions</th>
@@ -22,6 +23,7 @@
         <% @foods.each do |food| %>
           <tr>
             <td class="ml-2 px-6 py-4 border border-gray-200"><%= food.name %></td>
+            <td class="ml-2 px-6 py-4 border border-gray-200"><%= food.quantity %></td>
             <td class="ml-2 px-6 py-4 border border-gray-200"><%= food.measurement_unit %></td>
             <td class="ml-2 px-6 py-4 border border-gray-200">$<%= food.price %></td>
             <td class="ml-2 px-6 py-4 border border-gray-200">

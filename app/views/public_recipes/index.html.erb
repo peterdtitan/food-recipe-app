@@ -1,0 +1,10 @@
+<section >
+  <h2>Public Recipes</h2>
+  <ul >
+    <% @public_recipes.each do |recipe| %>
+      <li>
+        <%= render partial:"public_recipes/public_recipe", locals: {recipe: recipe} %>
+      </li>
+    <% end %>
+  </ul>
+</section>
