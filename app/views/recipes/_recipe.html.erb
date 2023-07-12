@@ -9,6 +9,7 @@
       <strong>Hour</strong>
     </div>
     <div class="switch-btn">
+    <% if can? :manage, @recipe %>
       <%= form_for @recipe, method: :patch do |f| %>
      <p>
      <label>
@@ -16,6 +17,7 @@
        <%= f.check_box :public, { checked: @recipe.public } %>
        </label>
      </p>
+     <% end %>
      <% end %>
    </div>
   </div>
@@ -30,7 +32,7 @@
     <strong>Description:</strong>
     <%= recipe.description %>
   </p>
-
+  <% if can? :manage, @recipe %>
   <div class="flex justify-between pb-10 mt-8">
     <button class="p-2 rounded-md bg-blue-400 hover:bg-emerald-400 text-black">
     <%= link_to "Generate Shopping List", shopping_list_path %>
@@ -39,7 +41,7 @@
     <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
     </button>
   </div>
-
+  <% end %>
   <table>
     <tr>
       <th>Food</th>
@@ -54,8 +56,10 @@
           <td>$ <%= recipe_food.value %></td>
           <td>
           <div>
+          <% if can? :manage, @recipe %>
             <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id)%>
             <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id),  method: :delete %>
+            <% end %>
           </div>
           </td>
       </tr>
