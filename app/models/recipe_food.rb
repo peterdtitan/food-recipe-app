@@ -14,9 +14,10 @@ class RecipeFood < ApplicationRecord
     recipe_foods.sum(&:value)
   end
 
-  def self.shopping_list(_user)
+  def self.shopping_list(current_user)
     recipe_foods = RecipeFood.joins(:food)
       .select('recipe_foods.food_id, foods.name, foods.price, SUM(recipe_foods.quantity) as quantity')
+      .where(foods: { user_id: current_user.id }) # Filter by user_id
       .group('recipe_foods.food_id, foods.name, foods.price')
 
     shop_list = []
