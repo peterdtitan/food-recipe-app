@@ -1,8 +1,8 @@
-<section>
-  <%= link_to "Back", "/recipes/#{@recipe.id}" %>
+<section class="flex flex-col gap-4">
+  <%= link_to "Back", "/recipes/#{@recipe.id}", class: "bg-blue-400 hover:bg-blue-600 rounded-md hover:text-white p-2 w-16 flex justify-center"%>
 
- <div>
-  <h1>Add Ingrediants</h1>
+ <div class=" flex flex-col items-center justify-center bg-gray-200 rounded-md p-6">
+  <h1 class="mb-4 bg-blue-300 rounded-md p-2">Add Ingredients</h1>
   <%= form_with(model: @recipe_food, url: "/recipes/#{@recipe.id}/recipe_foods/")  do |form| %>
       <div style="color: red">
        <% if @recipe_food.errors.any? %>
@@ -15,13 +15,13 @@
        <% end %>
       </div>
 
-   <div>
+   <div class="flex flex-col mt-2">
     <%= form.label :name, "Select Food:" %><br/>
     <%= form.select :id,
       options_for_select(@foods.map { |f| [f.name, f.id] }),{} %>
-      <%= form.label :quantity %>
+      <%= form.label :quantity, class: "mt-2" %>
       <%= form.number_field :quantity %>
-      <%= form.submit %>
+      <%= form.submit class: "bg-emerald-200 hover:bg-emerald-400 rounded-md p-2 mt-2" %>
      <% end %>
     </div>
 </section>

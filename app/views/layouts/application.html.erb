@@ -13,24 +13,26 @@
 
   <body>
     <main class="flex flex-col">
-      <nav class="flex item-center justify-between w-full p-6 bg-slate-700">
+      <nav class="flex item-center justify-between w-full p-6 bg-gray-700 text-white">
         <div class="flex items-center">
-          <%= link_to "RecipeApp", root_path, class: "text-2xl font-bold" %>
+          <%= link_to "RecipeApp", root_path, class: "text-2xl font-bold hover:text-blue-400" %>
         </div>
 
         <div class="flex items-center">
           <% if user_signed_in? %>
-              <%= link_to "Foods", foods_path, class: "ml-4" %>
-              <%= link_to "Recipes", recipes_path, class: "ml-4" %>
-              <%= link_to "Public Recipes", public_recipes_path, class: "ml-4" %>
-              <%= link_to "Shopping List", shopping_list_path, class: "ml-4" %>
+              <%= link_to "Foods", foods_path, class: "ml-4 hover:text-blue-400" %>
+              <%= link_to "Recipes", recipes_path, class: "ml-4 hover:text-blue-400" %>
+              <%= link_to "Public Recipes", public_recipes_path, class: "ml-4 hover:text-blue-400" %>
+              <%= link_to "Shopping List", shopping_list_path, class: "ml-4 hover:text-blue-400" %>
           <% end %>
         </div>
 
         <div class="flex items-center">
           <% if current_user %>
             <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-red-400" %>
-
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-red-400" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-red-400" %>
           <% end %>
         </div>
       </nav>
