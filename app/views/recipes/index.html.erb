@@ -19,7 +19,7 @@
           <%= link_to "Remove", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-600 ml-2 underline"  %>
         </div>
 
-        <div class="rounded p-4 max-w-[70%] bg-emerald-50 h-24">
+        <div class="rounded-md p-4 max-w-[70%] bg-emerald-50 h-24">
           <p class="font-thin "><%= truncate(recipe.description, length: 100) %>...</p>
         </div>
       </div>
