@@ -49,11 +49,11 @@ class FoodsController < ApplicationController
   # DELETE /foods/1 or /foods/1.json
   def destroy
     @food.destroy
-
-    respond_to do |format|
-      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to foods_url, notice: 'The food was successfully deleted.'
+  rescue ActiveRecord::InvalidForeignKey
+    redirect_to foods_url,
+                alert: 'Oops! The food record cannot be deleted because it is still referenced by a recipe.
+                Please delete the corresponding recipe before deleting the food.'
   end
 
   private

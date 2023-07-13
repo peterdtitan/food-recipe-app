@@ -11,7 +11,7 @@ class RecipeFood < ApplicationRecord
   end
 
   def self.total_price(recipe_foods)
-    recipe_foods.sum(&:value)
+    recipe_foods.includes(:food).sum(&:value)
   end
 
   def self.shopping_list(current_user)
