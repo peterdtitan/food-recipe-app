@@ -30,7 +30,9 @@
         <div class="flex items-center">
           <% if current_user %>
             <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-red-400" %>
-
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-red-400" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-red-400" %>
           <% end %>
         </div>
       </nav>
