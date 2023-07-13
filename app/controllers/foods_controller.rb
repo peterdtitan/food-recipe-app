@@ -50,12 +50,11 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
     redirect_to foods_url, notice: 'The food was successfully deleted.'
-  rescue ActiveRecord::InvalidForeignKey => e
+  rescue ActiveRecord::InvalidForeignKey
     redirect_to foods_url,
-                alert: 'Oops! The food record cannot be deleted because it is still referenced by a recipe. Please delete the corresponding recipe before deleting the food.'
+                alert: 'Oops! The food record cannot be deleted because it is still referenced by a recipe.
+                Please delete the corresponding recipe before deleting the food.'
   end
-
-
 
   private
 
