@@ -1,0 +1,42 @@
+<section class="flex flex-col gap-4 px-32">
+  <h2 class="text-4xl flex items-center justify-center rounded-md bg-blue-200 w-full p-8">Shopping List</h2>
+
+  <div class="flex justify-between bg-slate-200 rounded-md px-4 py-6">
+    <p>
+      Amount of food items to buy: <span class="text-red-400 font-medium"><%= @shop_list.length %></span>
+    </p>
+    <p>
+      Total value of food neeeded: <span class="text-red-400 font-medium"><%= @total_price %></span>
+    </p>
+  </div>
+
+  <div class="min-w-full flex flex-col items-center justify-center mt-6 pb-10">
+    <table class="min-w-full border">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Food</th>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Quantity</th>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shop_list.each do |recipe_food| %>
+          <tr>
+            <td class="ml-2 px-6 py-4 border border-gray-200"><%= recipe_food.food.name %></td>
+            <td class="ml-2 px-6 py-4 border border-gray-200"><%= recipe_food.quantity %></td>
+            <td class="ml-2 px-6 py-4 border border-gray-200">$ <%= recipe_food.price %></td>
+          </tr>
+        <% end %>
+        <% if @shop_list.length == 0 %>
+          <tr>
+            <td colspan="10">
+              <div>
+                <p>Don't Need to shop, Everything is available</p>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

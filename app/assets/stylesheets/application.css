@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registration_page {
+  height: 400px;
+  width: 50%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  background-color: azure;
+  justify-content: space-between;
+}
+
+.new_user {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+}

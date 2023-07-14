@@ -1,0 +1,74 @@
+<div id="<%= dom_id recipe %>" class="flex flex-col gap-4">
+  <div class="flex justify-center">
+    <h1 class="text-3xl font-medium"><%= recipe.name %></h1>
+  </div>
+ <div class="flex justify-between">
+    <div>
+      <strong>Preparation time:</strong>
+      <%= recipe.preparation_time %>
+      <strong>Hour</strong>
+    </div>
+    <div class="switch-btn">
+     <% if can? :manage, @recipe %>
+       <%= form_for @recipe, method: :patch do |f| %>
+          <div>
+              <%= f.check_box :public, id: 'visibility-toggle' %>
+             <%= f.label :public, 'Public', for: 'visibility-toggle' %>
+             <%= f.submit '=>', class: "p-2 rounded-md bg-blue-400 hover:bg-yellow-400 text-black" %>
+           </div>
+        <% end %>
+     <% end %>
+   </div>
+  </div>
+
+  <p>
+    <strong>Cooking time:</strong>
+    <%= recipe.cooking_time %>
+    <strong>Hour</strong>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= recipe.description %>
+  </p>
+  <% if can? :manage, @recipe %>
+  <div class="flex justify-between pb-10 mt-8">
+    <button class="p-2 rounded-md bg-blue-400 hover:bg-emerald-400 text-black">
+    <%= link_to "Generate Shopping List", shopping_list_path %>
+    </button>
+    <button class="p-2 rounded-md bg-emerald-400 hover:bg-yellow-400 text-black">
+    <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
+    </button>
+  </div>
+  <% end %>
+
+  <div class="min-w-full flex flex-col items-center justify-center mt-10 pb-10">
+    <table class="min-w-full border">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Food</th>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Quantity</th>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Value</th>
+          <th class="px-6 py-3 bg-gray-200 text-gray-700 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |recipe_food| %>
+          <tr>
+            <td class="ml-2 px-6 py-4 border border-gray-200"><%= recipe_food.food.name %></td>
+            <td class="ml-2 px-6 py-4 border border-gray-200"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+            <td class="ml-2 px-6 py-4 border border-gray-200">$ <%= recipe_food.value %></td>
+            <td class="ml-2 px-6 py-4 border border-gray-200">
+              <div class="flex gap-4">
+                <% if can? :manage, @recipe %>
+                  <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "hover:underline text-emerald-400"%>
+                  <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id),  method: :delete, class: "hover:underline text-red-400" %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

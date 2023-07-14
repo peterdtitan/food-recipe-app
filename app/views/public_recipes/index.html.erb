@@ -1,0 +1,10 @@
+<section class="flex flex-col items-center justify-center px-32">
+  <h2 class="text-4xl flex items-center justify-center rounded-md bg-blue-200 w-full p-8">Public Recipes</h2>
+  <ul class="mt-8">
+    <% @public_recipes.each do |recipe| %>
+      <li>
+        <%= render partial:"public_recipes/public_recipe", locals: {recipe: recipe} %>
+      </li>
+    <% end %>
+  </ul>
+</section>

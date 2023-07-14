@@ -1,0 +1,14 @@
+<a href=<%= "recipes/#{recipe.id}" %> >
+  <div class="flex justify-around items-start gap-10 h-[170px] w-[700px] rounded-md p-8 bg-slate-200">
+    <div class="flex flex-col gap-10 justify-around">
+      <div class="flex flex-col">
+        <h2 class="font-bold text-2xl"><%= recipe.name %></h2>
+        <p class="mt-2">By: <span class="text-emerald-400 underline"><%= recipe.user.name%></span></p>
+      </div>
+    </div>
+    <div class="rounded-md flex flex-col gap-6 p-4 w-[70%] bg-emerald-50 h-24">
+      <h4>Total food: <span class="text-red-400 font-medium"><%= recipe.recipe_foods.length %></span></h4>
+      <h4>Total price: <span class="text-red-400 font-medium">$<%= RecipeFood.total_price(recipe.recipe_foods) %></span></h4>
+    </div>
+  </div>
+</a>

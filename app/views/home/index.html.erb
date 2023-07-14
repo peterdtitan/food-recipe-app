@@ -1,0 +1,30 @@
+<div class="w-full">
+  <div class="min-w-full flex flex-col gap-4 items-center justify-center mt-10">
+      <div class="flex flex-col justify-center items-center gap-10 rounded-md p-12 bg-slate-200">
+          <% if current_user  %>
+            <h1 class="font-medium text-4xl">Welcome, <span class="text-blue-400 font-semi-bold"><%= current_user.name %>!</span><h1>
+            <p>
+              The Food Recipe App keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, 
+              keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. 
+              It will also allow you to keep track of your inventory and alert you when you are running low on an ingredient (future update).</p>  
+            </p>
+            <p class="mt-4">
+              Use the navbar above to navigate the app routes available to you. Have fun while you are here. However if you like this app,&nbsp;
+              please give it a star and contribute to making it better. Kudos to the authors&nbsp;
+              <a href="https://github.com/peterdtitan" target="_blank" class="text-blue-400 underline hover:text-red-500">Peter Okorafor</a> and&nbsp;
+              <a href="https://github.com/AbdusSattar-70" target="_blank" class="text-blue-400 underline hover:text-red-500">Abdus Sattar</a>&nbsp;
+            </p>
+          <% else  %>
+            <h1 class="font-bold text-4xl">Wecome To Our Recipe App!<h1>
+            <h2 class="font-thin text-xl">You must be signed in to continue...</h2>
+            <div class="flex flex-col justify-center items-center gap-2">
+              <%= link_to "Sign in", new_user_session_path, class: "ml-4 bg-white text-black p-2 rounded-md hover:bg-emerald-400" %>
+              <p class="italic font-thin mt-2">
+                Don't have an account?&nbsp;
+                <%= link_to "Sign up", new_user_registration_path, class: "text-black underline hover:text-red-500" %>
+              </p>
+            </div>
+          <% end %>
+      </div>
+  </div>
+</div>
