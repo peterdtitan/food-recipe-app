@@ -1,8 +1,14 @@
 class RecipeFood < ApplicationRecord
+  attr_reader :food, :quantity, :price
   belongs_to :recipe
   belongs_to :food
 
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  def initialize(food, quantity)
+    @food = food
+    @quantity = quantity
+  end
 
   def value
     return 'Opps! No Food Found' unless food

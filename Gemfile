@@ -50,6 +50,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -83,5 +84,3 @@ gem 'letter_opener'
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'rails-controller-testing'
-
-gem 'factory_bot_rails'
