@@ -78,6 +78,7 @@ gem 'devise'
 # for authorization
 gem 'cancancan'
 
-gem 'letter_opener'
-
 gem 'tailwindcss-rails', '~> 2.0'
+
+gem 'rails-controller-testing'
+gem 'rspec-rails'
