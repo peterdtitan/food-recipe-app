@@ -11,7 +11,7 @@ class RecipeFoodsController < ApplicationController
     recipe = Recipe.find(params[:recipe_id])
     food = Food.find(params[:recipe_food][:id])
 
-    existing_recipe_food = RecipeFood.find_by(recipe: recipe, food: food)
+    existing_recipe_food = RecipeFood.find_by(recipe:, food:)
 
     if existing_recipe_food
       existing_recipe_food.update(quantity: existing_recipe_food.quantity + recipe_food_params[:quantity].to_i)

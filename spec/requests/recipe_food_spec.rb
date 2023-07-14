@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe RecipeFoodsController, type: :controller do
   let(:user) { User.create(name: 'John Doe', email: 'doe@gmail.com', password: '123456') }
   let(:food) { Food.create(name: 'Ingredient', price: 10, measurement_unit: 'unit', quantity: 1, user_id: user.id) }
-  let(:recipe) { Recipe.create(name: 'Recipe', preparation_time: 30, cooking_time: 60, description: 'Delicious recipe', public: true, user_id: user.id) }
+  let(:recipe) do
+    Recipe.create(name: 'Recipe', preparation_time: 30, cooking_time: 60, description: 'Delicious recipe', public: true,
+                  user_id: user.id)
+  end
   let(:recipe_food) { RecipeFood.create(recipe_id: recipe.id, food_id: food.id, quantity: 2) }
 
   describe 'GET #new' do
@@ -28,9 +31,9 @@ RSpec.describe RecipeFoodsController, type: :controller do
       let(:valid_params) { { recipe_id: recipe.id, recipe_food: { id: food.id, quantity: 3 } } }
 
       it 'creates a new recipe_food' do
-        expect {
+        expect do
           post :create, params: valid_params
-        }.to change(RecipeFood, :count).by(1)
+        end.to change(RecipeFood, :count).by(1)
       end
 
       it 'assigns the created recipe_food' do
@@ -54,9 +57,9 @@ RSpec.describe RecipeFoodsController, type: :controller do
       let(:invalid_params) { { recipe_id: recipe.id, recipe_food: { id: food.id, quantity: -1 } } }
 
       it 'does not create a new recipe_food' do
-        expect {
+        expect do
           post :create, params: invalid_params
-        }.to_not change(RecipeFood, :count)
+        end.to_not change(RecipeFood, :count)
       end
 
       it 'redirects to the recipe' do
@@ -74,9 +77,9 @@ RSpec.describe RecipeFoodsController, type: :controller do
   describe 'DELETE #destroy' do
     it 'destroys the recipe_food' do
       recipe_food # Create the recipe_food
-      expect {
+      expect do
         delete :destroy, params: { recipe_id: recipe.id, id: recipe_food.id }
-      }.to change(RecipeFood, :count).by(-1)
+      end.to change(RecipeFood, :count).by(-1)
     end
 
     it 'redirects to the recipe' do

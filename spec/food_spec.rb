@@ -33,5 +33,4 @@ RSpec.describe Food, type: :model do
     expect(food).to_not be_valid
     expect(food.errors[:price]).to include("can't be blank")
   end
-
 end

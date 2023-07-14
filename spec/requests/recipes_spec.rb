@@ -21,9 +21,9 @@ RSpec.describe 'Recipes', type: :request do
       )
     end
     it 'returns a successful response' do
-        get recipe_path(recipe)
-        expect(response).to have_http_status(:ok)
-      end
+      get recipe_path(recipe)
+      expect(response).to have_http_status(:ok)
+    end
   end
 
   describe 'DELETE /recipes/:id' do
