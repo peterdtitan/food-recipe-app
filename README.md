@@ -29,7 +29,6 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-
 # 📖 Food Recipe App <a name="about-project"></a>
 
 **Food Recipe App** keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
@@ -59,7 +58,6 @@
   </ul>
 </details>
 
-
 ### Key Features <a name="key-features"></a>
 
 - **CRUD functionailties**
@@ -70,10 +68,7 @@
 - **Authentication**
 - **Authorization**
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -99,7 +94,6 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-
 ```sh
   cd recipe_app
   bundle install
@@ -109,7 +103,6 @@ Install this project with:
 
 To run the project, execute the following command:
 
-
 ```sh
   rails server
 ```
@@ -117,7 +110,6 @@ To run the project, execute the following command:
 ### Run tests
 
 To run tests, run the following command:
-
 
 ```sh
   rspec
@@ -139,27 +131,23 @@ This project is run locally and has no deployments yet.
 - Twitter: [@PeterDeTitan](https://twitter.com/PeterDeTitan)
 - LinkedIn: [Peter OKorafor](https://linkedin.com/in/peterokorafor)
 
+## <a> 👤 Abdus Sattar </a>
 
-👤 **Abdus Sattar**
-
-- GitHub: [@Santosh-Konappanavar](https://github.com/AbdusSattar-70)
-- LinkedIn: [@Santosh Konappanavar](https://www.linkedin.com/in/abdus-sattar-a41a26215/)
-
+- GitHub: [AbdusSattar-70](https://github.com/AbdusSattar-70)
+- Twitter: [Abdus Sattar](https://twitter.com/Abdus_Sattar70)
+- LinkedIn: [Abdus Sattar](https://www.linkedin.com/in/abdus-sattar70/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ## 🔭 Future Features <a name="future-features"></a>
 
 There will be no future features available for this project as it will be deprecated soon. However, the following may be done:
+
 - Code Refactoring
 - Modification of modules
 - More unit tests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -168,8 +156,6 @@ Contributions, issues, and feature requests are welcome!
 Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ## ⭐️ Show your support <a name="support"></a>
 

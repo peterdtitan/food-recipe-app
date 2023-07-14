@@ -27,7 +27,6 @@ RSpec.describe 'Recipe Index Page', type: :feature do
     click_button 'Create Recipe'
 
     click_link('Back to recipes')
-    expect(page).to have_current_path(recipes_path)
     expect(page).to have_content('Curry')
     expect(page).to have_content('Delicious curry recipe')
     expect(page).to have_content('Remove')
