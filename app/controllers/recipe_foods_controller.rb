@@ -11,7 +11,7 @@ class RecipeFoodsController < ApplicationController
     recipe = Recipe.find(params[:recipe_id])
     food = Food.find(params[:recipe_food][:id])
 
-    existing_recipe_food = RecipeFood.find_by(recipe:, food:)
+    existing_recipe_food = RecipeFood.find_by(recipe: recipe, food: food)
 
     if existing_recipe_food
       existing_recipe_food.update(quantity: existing_recipe_food.quantity + recipe_food_params[:quantity].to_i)
@@ -44,7 +44,7 @@ class RecipeFoodsController < ApplicationController
   def update
     @recipe_food = RecipeFood.find(params[:id])
     @recipe_food.update(recipe_food_params)
-    redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Ingredient was successfully updated.'
+    redirect_to recipe_path(@recipe_food.recipe), notice: 'Ingredient was successfully updated.'
   end
 
   private

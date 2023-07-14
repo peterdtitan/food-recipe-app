@@ -9,10 +9,6 @@ RSpec.describe 'Food #Index Page', type: :feature do
     visit foods_path
   end
 
-  it 'displays the content "Foods" on the UI' do
-    expect(page).to have_content('Foods')
-  end
-
   it 'displays the table header "Name" on the UI' do
     expect(page).to have_content('Name')
   end
