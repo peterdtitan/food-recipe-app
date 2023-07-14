@@ -20,7 +20,6 @@ RSpec.describe Recipe, type: :model do
     expect(recipe.errors[:name]).to include("can't be blank")
   end
 
-
   it 'is invalid without a description' do
     recipe = Recipe.new(description: nil)
     expect(recipe).to_not be_valid
