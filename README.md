@@ -15,6 +15,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Live Link](#live-link)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -69,6 +70,16 @@
 - **Authorization**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Live Link <a name="live-link"></a>
+
+> The App has been deployed and is available to view on the URL provided below:
+
+- [View Food Recipe App on Render](https://food-recipe-app-pwft.onrender.com)
+
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
