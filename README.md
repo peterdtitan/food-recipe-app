@@ -108,6 +108,9 @@ Install this project with:
 ```sh
   cd recipe_app
   bundle install
+rails assets:precompile
+rails db:create
+rails db:migrate
 ```
 
 ### Usage
